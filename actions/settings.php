@@ -11,9 +11,8 @@
  $component = new OssnComponents;
  $announcement = input('announcement');
  
- if(empty($announcement)){
-		ossn_trigger_message(ossn_print('announcement:save:error'), 'error');
-		redirect(REF);		 
+ if(!$announcement){
+		$announcement = false;	 
  }
  $args = array(
 			   'announcement' => $announcement,
