@@ -15,7 +15,8 @@ $settings = $params['settings'];
     <?php 
 		echo ossn_plugin_view('input/textarea', array(
 				'name' => 'announcement',
-				'value' => $settings->announcement,
+				'class' => 'ossn-editor',
+				'value' => html_entity_decode($settings->announcement),
 		));
 	?>		
  </div>
