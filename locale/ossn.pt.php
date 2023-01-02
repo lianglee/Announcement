@@ -15,4 +15,5 @@ ossn_register_languages('pt', array(
 	'announcement:save:error' => 'O anúncio não pôde ser salvo',
 	'announcement:saved' => 'O anúncio foi salvo',
 	'announcement:text' => 'Informe a mensagem a ser anunciada',
+	'announcement:type' => 'Tipo de anúncio',
 ));

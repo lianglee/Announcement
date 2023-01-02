@@ -15,4 +15,5 @@ ossn_register_languages('it', array(
 	'announcement:save:error' => 'The announcement could not be saved',
 	'announcement:saved' => 'The announcement was saved',
 	'announcement:text' => 'Enter your announcement message',
+	'announcement:type' => 'Type of announcement',	
 ));
