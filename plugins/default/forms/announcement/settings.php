@@ -9,6 +9,10 @@
  * @link      http://www.opensource-socialnetwork.org/licence
  */
 $settings = $params['settings'];
+if(!$settings){
+	$settings = new stdClass();
+	$settings->announcement = '';
+}
 if (!isset($settings->type)){
 	$settings->type = "danger";
 }
@@ -30,16 +34,31 @@ if (!isset($settings->type)){
 	<label>
 		<?php echo ossn_print('announcement:type'); ?>
 	</label>
-	<select id="type" name="type">
-		<option class="alert alert-primary"    value="primary" <?php echo $settings->type == "primary" ? "selected" : "";?>>Primary</option>
-		<option class="alert alert-secondary"  value="secondary" <?php echo $settings->type == "secondary" ? "selected" : ""; ?>>Secondary</option>
-		<option class="alert alert-success"    value="success" <?php echo $settings->type == "success" ? "selected" : ""; ?>>Success</option>
-		<option class="alert alert-danger"     value="danger" <?php echo $settings->type == "danger" ? "selected" : ""; ?>>Danger</option>
-		<option class="alert alert-warning"    value="warning" <?php echo $settings->type == "warning" ? "selected" : ""; ?>>Warning</option>
-		<option class="alert alert-info"       value="info" <?php echo $settings->type == "info" ? "selected" : ""; ?>>Info</option>
-		<option class="alert alert-light"      value="light" <?php echo $settings->type == "light" ? "selected" : ""; ?>>Light</option>
-		<option class="alert alert-dark"       value="dark" <?php echo $settings->type == "dark" ? "selected" : ""; ?>>Dark</option>
-	</select>
+    <?php
+		echo ossn_plugin_view('input/dropdown', array(
+				'name' => 'type',
+				'value' => $settings->type,
+				'id' => 'announcement-type',
+				'options' => array(
+						'primary' => 'Primary',
+						'secondary' => 'Secondary',
+						'success' => 'Success',
+						'danger' => 'Danger',
+						'warning' => 'Warning',
+						'info' => 'Info',
+						'light' => 'Light',
+						'dark' => 'Dark',
+				 ),											  
+		));
+	?>
+    <script>
+		$(document).ready(function(){
+					$('#announcement-type option').each(function(){
+								$val = $(this).val();
+								$(this).addClass("alert alert-"+$val);
+					});						   
+		});
+	</script>
 </div>
 <div>
 	<div class="margin-top-10">
