@@ -10,9 +10,10 @@
  */
 ossn_register_languages('pt', array(
 	'announcement' => 'Site Announcement', // don't translate this line
-	'announcement:title' => 'Announcement!',
+	'announcement:title' => 'Anúncio!',
 	
-	'announcement:save:error' => 'The announcement could not be saved',
-	'announcement:saved' => 'The announcement was saved',
-	'announcement:text' => 'Enter your announcement message',
+	'announcement:save:error' => 'O anúncio não pôde ser salvo',
+	'announcement:saved' => 'O anúncio foi salvo',
+	'announcement:text' => 'Informe a mensagem a ser anunciada',
+	'announcement:type' => 'Tipo de anúncio',
 ));

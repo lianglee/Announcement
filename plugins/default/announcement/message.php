@@ -16,10 +16,14 @@ if(ossn_isLoggedin()) {
 		$current_lang = $user->language;
 	}
 }
+
+if (!isset($params["announcement"]->type)) {
+	$params["announcement"]->type = "danger";
+}
 ?>
 
 $(document).ready(function(){
-	var  announcement= <?php echo json_encode('<div class="announcement" style="text-align: justify;"> <div class="alert alert-danger"> <strong>'.ossn_print('announcement:title').'</strong> <p>'.html_entity_decode($params["announcement"]->announcement).'</p> </div> </div>');?>;
+	var  announcement= <?php echo json_encode('<div class="announcement" style="text-align: justify;"> <div class="alert alert-'. $params["announcement"]->type.'"> <strong>'.ossn_print('announcement:title').'</strong> <p>'.html_entity_decode($params["announcement"]->announcement).'</p> </div> </div>');?>;
 	if($('.newsfeed-middle .ossn-wall-container').length){
 		$(announcement).insertAfter('.newsfeed-middle .ossn-wall-container');
 		$("[class*='textarea-language-']").hide();
